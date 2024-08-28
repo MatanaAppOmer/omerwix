@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/omerwix/static/css/main.b9ae9154.css",
+    "main.js": "/omerwix/static/js/main.9f9a7a91.js",
+    "static/js/453.b95ce600.chunk.js": "/omerwix/static/js/453.b95ce600.chunk.js",
+    "index.html": "/omerwix/index.html",
+    "main.b9ae9154.css.map": "/omerwix/static/css/main.b9ae9154.css.map",
+    "main.9f9a7a91.js.map": "/omerwix/static/js/main.9f9a7a91.js.map",
+    "453.b95ce600.chunk.js.map": "/omerwix/static/js/453.b95ce600.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b9ae9154.css",
+    "static/js/main.9f9a7a91.js"
+  ]
+}
