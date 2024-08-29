@@ -4,6 +4,9 @@ import './styles.css';
 import CategorySelection from './components/CategorySelection';
 import RowSelection from './components/RowSelection';
 import CommentList from './components/CommentList';
+import SearchBar from './components/SearchBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const fullTextData = {
     'Row 13': "The site doesn’t use any trademarked logos, branded content or copyrighted materials such as images, videos, music or custom fonts.",
@@ -30,14 +33,21 @@ const fullTextData = {
 function App() {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedRow, setSelectedRow] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleCategorySelect = (category) => {
         setSelectedCategory(category);
         setSelectedRow('');  // Reset row selection when category changes
+        setSearchTerm('');  // Clear search term when category changes
     };
 
     const handleRowSelect = (row) => {
         setSelectedRow(row);
+        setSearchTerm('');  // Clear search term when row changes
+    };
+
+    const handleSearch = (term) => {
+        setSearchTerm(term);
     };
 
     return (
@@ -48,14 +58,17 @@ function App() {
                 <>
                     <RowSelection category={selectedCategory} onSelectRow={handleRowSelect} />
                     {selectedRow && (
-                        <div className="full-text">
-                            <h3>{selectedRow} Description</h3>
-                            <p>{fullTextData[selectedRow]}</p>
-                        </div>
+                        <>
+                            <div className="full-text">
+                                <h3>{selectedRow} Description</h3>
+                                <p>{fullTextData[selectedRow]}</p>
+                            </div>
+                            <SearchBar onSearch={handleSearch} />
+                        </>
                     )}
                 </>
             )}
-            {selectedRow && <CommentList row={selectedRow} />}
+            {selectedRow && <CommentList row={selectedRow} searchTerm={searchTerm} />}
         </div>
     );
 }
